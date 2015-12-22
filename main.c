@@ -27,13 +27,14 @@ int main(void)
 {
    void *pagesrc = NULL;
    void *pagedst = NULL;
-   int i;
+   int i, j;
    posix_memalign (&pagesrc, PAGE_SIZE, PAGE_SIZE);
    posix_memalign (&pagedst, PAGE_SIZE, PAGE_SIZE);
 
+   for(j = 0;j < 2; j++)
    for(i = 0; tests[i].name != NULL; i++)
      {
-	memset (pagesrc, i, PAGE_SIZE);
+	//memset (pagesrc, i, PAGE_SIZE);
 	start_time();
 	tests[i].func(pagedst, pagesrc);
 	stop_time();

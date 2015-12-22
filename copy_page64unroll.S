@@ -27,7 +27,6 @@ ENTRY(copy_page64unroll)
 	/* The cache line size is at least 64 bytes. */
 	prfm	pldl1strm, [x1, #64]
 	prfm	pldl1strm, [x1, #128]
-	.balign 128
 1:	prfm	pldl1strm, [x1, #192]
 	prfm	pldl1strm, [x1, #256]
 	ldp	x2, x3, [x1]

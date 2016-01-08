@@ -24,9 +24,7 @@
  *	x1 - src
  */
 ENTRY(copy_page_will_prefetch)
-	//prfm    pldl1strm, [x1, #64]
 	prfm    pldl1strm, [x1, #128]
-	//prfm    pldl1strm, [x1, #192]
 	prfm    pldl1strm, [x1, #256]
 	ldp	x2, x3, [x1]
 	ldp	x4, x5, [x1, #16]
@@ -41,7 +39,6 @@ ENTRY(copy_page_will_prefetch)
 	add	x1, x1, #128
 1:
 	subs	x18, x18, #128
-	//prfm    pldl1strm, [x1, #320]
 	prfm    pldl1strm, [x1, #384]
 
 	stnp	x2, x3, [x0]
